@@ -1,0 +1,359 @@
+@font-face {
+  font-family: InterExtraBold;
+  src: url("../src/Assets/Fonts/Inter/Inter_18pt-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: InterBold;
+  src: url("../src/Assets/Fonts/Inter/Inter_18pt-Bold.ttf");
+}
+
+@font-face {
+  font-family: InterLight;
+  src: url("../src/Assets/Fonts/Inter/Inter_18pt-Light.ttf");
+}
+
+@font-face {
+  font-family: InterMedium;
+  src: url("../src/Assets/Fonts/Inter/Inter_24pt-Medium.ttf");
+}
+
+@font-face {
+  font-family: PlusJarkataSanExtraBold;
+  src: url("../src/Assets/Fonts/Plus_Jakarta_Sans/PlusJakartaSans-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: PlusJarkataSanBold;
+  src: url("../src/Assets/Fonts/Plus_Jakarta_Sans/PlusJakartaSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: PlusJarkataSanLight;
+  src: url("../src/Assets/Fonts/Plus_Jakarta_Sans/PlusJakartaSans-Light.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+body {
+  max-width: 1700px;
+  margin: 0 auto;
+}
+/* Home Page Stylings */
+
+.home-container {
+  display: flex;
+}
+
+.home-contents {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px;
+  width: 100%;
+}
+
+/* Sidebar Stylings */
+
+.sidebar-container {
+  /* position: relative; */
+  display: flex;
+}
+
+.sidebar-container nav {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  overflow: scroll;
+  scrollbar-width: none;
+  gap: 30px;
+  border-right: 1px solid #e3eae5;
+}
+
+.sidebar-container nav div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  /* border-right: 1px solid #e3eae5; */
+}
+
+.sidebar-container nav .logo {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.sidebar-container nav div a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #000;
+}
+
+.features-logo {
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.features-logo:hover,
+.features-logo:active {
+  background: linear-gradient(to right, #20bf55b2, #20bf55);
+  color: #fff;
+  transform: scale(1.1);
+  transition: all 0.4s;
+}
+
+.sidebar-container nav div a p {
+  text-align: center;
+  font-size: 12px;
+  font-family: PlusJarkataSanLight;
+}
+
+.sidebar-profile-dp {
+  width: 50px;
+  height: 50px;
+  margin-top: 200px;
+  box-shadow: -1px -5px 59px 4px rgba(32, 191, 85, 0.75);
+  -webkit-box-shadow: -1px -5px 59px 4px rgba(32, 191, 85, 0.75);
+  -moz-box-shadow: -1px -5px 59px 4px rgba(32, 191, 85, 0.75);
+  border-radius: 10px;
+}
+
+/* Top Search Area Stylings */
+.top-search-area {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-area {
+  background-color: #e4e7ec;
+  /* height: 20px; */
+  padding: 10px 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.search-area input {
+  background-color: #e4e7ec;
+  width: 500px;
+  outline: none;
+  height: 30px;
+  border: 0;
+  font-size: 20px;
+  font-family: InterLight;
+}
+
+.top-search-area-dp {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+/* Top Greetings Styling */
+.top-greetings-container {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greetings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.greetings h2 {
+  font-family: PlusJarkataSanExtraBold;
+  font-size: 28px;
+}
+
+.greetings p {
+  font-family: PlusJarkataSanLight;
+}
+
+.currrent-date {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid #bec3cb;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.currrent-date div p:nth-of-type(1) {
+  font-family: PlusJarkataSanLight;
+}
+
+.currrent-date div p:nth-of-type(2) {
+  font-family: PlusJarkataSanBold;
+  margin-top: 10px;
+}
+
+/* Home Features Container Styling */
+.home-features-container {
+  display: flex;
+}
+
+/* Tests Result Container */
+.test-results-container {
+  display: flex;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+.test-result-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 220px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 4px 7px 32px -2px rgba(89, 88, 88, 0.75);
+  -webkit-box-shadow: 4px 7px 32px -2px rgba(89, 88, 88, 0.75);
+  -moz-box-shadow: 4px 7px 32px -2px rgba(89, 88, 88, 0.75);
+}
+
+.test-result-container:hover {
+  transform: scale(1.03);
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.test-result-container div:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.test-logo {
+  font-size: 40px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.test-result-container div:nth-of-type(1) p {
+  font-family: PlusJarkataSanBold;
+  font-size: 20px;
+}
+
+/* Quick Action Stylings */
+.quick-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #e4e7ec;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.quick-actions-container h2 {
+  font-family: PlusJarkataSanExtraBold;
+  border-bottom: 1px solid #e4e7ec;
+  padding-bottom: 10px;
+}
+
+.actions-container {
+  display: flex;
+  flex-direction: column;
+  /* gap: 30px; */
+}
+
+.actions-container a:hover {
+  background-color: #e4e7ec;
+  transition: all 0.4s;
+}
+
+.action-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e4e7ec;
+  padding: 20px;
+}
+
+.action-details {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.action-img {
+  font-size: 30px;
+  background-color: #f0f2f5;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.action-details div p:nth-of-type(1) {
+  font-family: PlusJarkataSanBold;
+  margin-bottom: 10px;
+}
+
+.action-details div p:nth-of-type(2) {
+  font-family: PlusJarkataSanLight;
+}
+
+/* Health Tip Component Styling */
+.health-tips-container {
+  margin: 30px;
+  text-align: justify;
+  background-color: #fbfbff;
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
+  padding: 30px;
+  margin-right: 0;
+}
+
+.health-tips-container h2 {
+  font-family: PlusJarkataSanBold;
+  margin-bottom: 40px;
+}
+
+.tips-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.tip-container {
+  display: flex;
+  gap: 10px;
+}
+
+.tip-details h3 {
+  font-family: PlusJarkataSanBold;
+  color: #0b1c33;
+}
+
+.tip-details p {
+  font-family: PlusJarkataSanLight;
+  color: #0b1c33;
+  margin-top: 20px;
+}
+
+.tip-attached-pics-div {
+  position: relative;
+}
+
+.tip-attached-pics {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
