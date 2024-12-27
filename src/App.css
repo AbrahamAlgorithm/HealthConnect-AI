@@ -222,7 +222,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 220px;
+  width: 200px;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 4px 7px 32px -2px rgba(89, 88, 88, 0.75);
@@ -356,4 +356,122 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 10px;
+}
+
+
+
+/* Recent Consulatations Component Stylings */
+.recent-consults-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.recent-consults-heading h2 {
+  color: #101928;
+  font-family: PlusJarkataSanLight;
+}
+
+.recent-consults-heading a p {
+  color: #667185;
+  font-family: PlusJarkataSanBold;
+}
+
+.consultants-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 10px 40px;
+  border: 1px solid #E4E7EC;
+  border-radius: 10px;
+}
+
+.consultant-details-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  width: 40%;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E4E7EC;
+}
+
+.consultant-details {
+  display: flex;
+  gap: 20px;
+}
+
+.consultant-details img {
+  border-radius: 50%;
+}
+
+.consultant-name {
+  font-family: PlusJarkataSanBold;
+  margin-bottom: 5px;
+}
+
+.consultant-specialization {
+  font-family: PlusJarkataSanLight;
+}
+
+.consultant-details-container a button {
+  font-family: PlusJarkataSanBold;
+  color: #141313;
+  padding: 10px 30px;
+  border-radius: 50px;
+  border: 1px solid #D0D5DD;
+  background-color: #fff;
+  font-size: 15px;
+}
+
+/* Vaccine Schedules Container */
+
+.vaccine-schedules-container {
+  display: flex;
+  flex-direction: column;
+  /* gap: 30px; */
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #DAE3F8;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.schedule-table-data {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid #DAE3F8;
+}
+
+.schedule-table-schema,
+.schedule-table-datum {
+  display: flex;
+  justify-content: space-between;
+  /* text-align: center; */
+  padding: 20px;
+  color: #0B1C33;
+  align-items: center;
+}
+
+.schedule-table-schema {
+  background-color: #F2F5FA;
+  border: 1px solid #DAE3F8;
+  border-radius: 10px 10px 0 0;
+  font-size: 16px;
+  font-family: PlusJarkataSanBold;
+}
+
+.schedule-table-datum {
+  font-family: PlusJarkataSanLight;
+}
+
+.schedule-table-datum button {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #DAE3F8;
+  font-family: PlusJarkataSanLight;
+  width: 100px;
 }
