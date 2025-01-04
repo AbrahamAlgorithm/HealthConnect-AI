@@ -1,7 +1,7 @@
 import { color } from 'chart.js/helpers';
 import React from 'react'
 
-const VacineSchedules = () => {
+const VaccineSchedules = () => {
   const vaccinationData = [
     {
       vaccineName: 'Measles',
@@ -98,4 +98,4 @@ const VacineSchedules = () => {
   )
 }
 
-export default VacineSchedules;
+export default VaccineSchedules;
