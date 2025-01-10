@@ -13,27 +13,33 @@ const SideBar = () => {
     const sideBarNavs = [
         {
             navIcon: GoHome,
-            navTitle: 'Home'
+            navTitle: 'Home',
+            navLink: '/',
         },
         {
             navIcon: RxDashboard,
-            navTitle: 'Patient Dashboard'
+            navTitle: 'Patient Dashboard',
+            navLink: '/patientdashboard',
         },
         {
             navIcon: FaHeadSideVirus,
-            navTitle: 'A Symptom Checker'
+            navTitle: 'A Symptom Checker',
+            navLink: '/symptomchecker',
         },
         {
             navIcon: FaUserDoctor,
-            navTitle: 'Locate doctor'
+            navTitle: 'Locate doctor',
+            navLink: '/chat',
         },
         {
             navIcon: FaRegBell,
-            navTitle: 'Activities'
+            navTitle: 'Activities',
+            navLink: '/activities',
         },
         {
             navIcon: IoSettingsOutline,
-            navTitle: 'Settings'
+            navTitle: 'Settings',
+            navLink: '/settings',
         },
     ]
     return (
@@ -43,7 +49,7 @@ const SideBar = () => {
                 <div>
                     {sideBarNavs.map((sideBarNav) => {
                         return (
-                            <Link>
+                            <Link to={sideBarNav.navLink}>
                                 <sideBarNav.navIcon className='features-logo' />
                                 <p>{sideBarNav.navTitle}</p>
                             </Link>
