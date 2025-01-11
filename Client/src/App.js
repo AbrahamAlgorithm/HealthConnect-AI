@@ -4,6 +4,7 @@ import PatientDashboard from "./pages/PatientDashboard.jsx";
 import Chatting from "./pages/Chatting.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
+import SymptomChecker from "./pages/SymptomsChecker.jsx";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/home" element={<Home />} />
         <Route path="/patientdashboard" element={<PatientDashboard />} />
+        <Route path="/symptomchecker" element={<SymptomChecker />} />
         <Route path="/chat" element={<Chatting />} />
       </Routes>
     </BrowserRouter>

@@ -14,7 +14,7 @@ const SideBar = () => {
         {
             navIcon: GoHome,
             navTitle: 'Home',
-            navLink: '/',
+            navLink: '/home',
         },
         {
             navIcon: RxDashboard,

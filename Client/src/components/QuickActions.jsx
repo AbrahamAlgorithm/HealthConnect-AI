@@ -11,6 +11,7 @@ const QuickActions = () => {
             actionIcon: FaHeadSideVirus,
             actionName: 'AI Symptoms Checker',
             actionFeature: 'Let our AI agent diagnose you',
+            to: '/symptomschecker',
             // add a naviagtion to the AI Symptoms Checker page
             actionPath: '/ai-symptoms-checker'
         },
@@ -36,7 +37,7 @@ const QuickActions = () => {
             <div className="actions-container">
                 {quickActionsDetails.map((quickActionsDetail) => {
                     return (
-                        <Link to={'/'}>
+                        <Link to={'/symptomchecker'} className="action-link">
                             <div className="action-container">
                                 <div className="action-details">
                                     <quickActionsDetail.actionIcon className="action-img" />

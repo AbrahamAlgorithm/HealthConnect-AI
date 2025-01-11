@@ -70,7 +70,7 @@ const Signup = () => {
         </form>
 
         <p className="auth-redirect">
-          Already have an account? <Link to="/login">Sign in</Link>
+          Already have an account? <Link to="/">Sign in</Link>
         </p>
       </div>
     </div>
