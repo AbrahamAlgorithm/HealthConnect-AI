@@ -545,3 +545,80 @@ body {
   padding: 0 10px;
   font-size: 20px;
 }
+
+/* Auth Pages Styling */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #FBFBFF;
+}
+
+.auth-form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-form-container h2 {
+  font-family: PlusJarkataSanExtraBold;
+  color: #0B1C33;
+  margin-bottom: 0.5rem;
+}
+
+.auth-form-container p {
+  font-family: PlusJarkataSanLight;
+  color: #667185;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: PlusJarkataSanBold;
+  margin-bottom: 0.5rem;
+  color: #0B1C33;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #E4E7EC;
+  border-radius: 8px;
+  font-family: PlusJarkataSanLight;
+  font-size: 1rem;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(to right, #20bf55b2, #20bf55);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: PlusJarkataSanBold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.auth-button:hover {
+  background: linear-gradient(to right, #20bf55, #20bf55b2);
+}
+
+.auth-redirect {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.auth-redirect a {
+  color: #20bf55;
+  font-family: PlusJarkataSanBold;
+}

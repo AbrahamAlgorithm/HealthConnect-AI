@@ -11,6 +11,8 @@ const QuickActions = () => {
             actionIcon: FaHeadSideVirus,
             actionName: 'AI Symptoms Checker',
             actionFeature: 'Let our AI agent diagnose you',
+            // add a naviagtion to the AI Symptoms Checker page
+            actionPath: '/ai-symptoms-checker'
         },
         {
             actionIcon: FaUserDoctor,
