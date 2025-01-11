@@ -23,7 +23,7 @@ const SideBar = () => {
         },
         {
             navIcon: FaHeadSideVirus,
-            navTitle: 'A Symptom Checker',
+            navTitle: 'AI Symptom Checker',
             navLink: '/symptomchecker',
         },
         {
