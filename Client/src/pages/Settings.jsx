@@ -9,9 +9,10 @@ import { api } from '../services/router';
 const Settings = () => {
     const [activeTab, setActiveTab] = useState('profile');
     const [formData, setFormData] = useState({
-        username: 'John Doe',
-        email: 'john@example.com',
+        username: '',
+        email: '',
         phone: '+1234567890',
+        date: "",
         notifications: true,
         emailUpdates: true,
         twoFactor: false
@@ -20,7 +21,8 @@ const Settings = () => {
         try {
             const response = await api.get("/api/v1/users/me");
             console.log(response?.data?.user);
-            setFormData(response?.data?.user);
+            const user = response?.data?.user
+            setFormData({ ...formData, username: user.username, email: user.email, date: user.created_at });
         } catch (e) {
             console.error('Error:', e.response.data?.detail);
             toast.error(e.response.data?.detail);
@@ -28,6 +30,22 @@ const Settings = () => {
 
 
     }
+
+    const formatDate = (dateString) => {
+        const months = [
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+
+        const date = new Date(dateString);
+        const month = months[date.getMonth()]; // Get month abbreviation
+        const day = date.getDate(); // Get day of the month
+        const year = date.getFullYear(); // Get full year
+
+        return `${month} ${day} ${year}`;
+    };
+
+
     useEffect(() => {
         fetchUser()
     }, [])
@@ -61,7 +79,7 @@ const Settings = () => {
                             <p>{formData.email}</p>
                             <div className='profile-status'>
                                 <span className='status-badge'>Active</span>
-                                <span className='member-since'>Member since 2024</span>
+                                <span className='member-since'>Member since {formatDate(formData.date)}</span>
                             </div>
                         </div>
 
@@ -84,8 +102,8 @@ const Settings = () => {
                                         <h3>Personal Information</h3>
                                         <div className='form-grid'>
                                             <div className='form-group'>
-                                                <label>Full Name</label>
-                                                <input type="text" value={formData.fullName} />
+                                                <label>Username</label>
+                                                <input type="text" value={formData.username} />
                                             </div>
                                             <div className='form-group'>
                                                 <label>Email Address</label>

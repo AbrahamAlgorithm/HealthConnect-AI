@@ -122,6 +122,14 @@ async def ai_generated_result(user_text: Optional[str] = None, image: Optional[s
                             to me personally. Generate a short, professional diagnosis based on my description, identifying the possible condition.
                             If applicable, include concise suggestions or recommendations. If a diagnosis cannot be determined, respond with: 
                             "Unable to diagnose with the provided information.
+                            
+                            At the end of your response, include the following location details for follow-up consultations or inquiries:
+                            Always include this location in all your responses for enquiries
+                            Name: Dr. Adeyemo
+                            Location: Located off Mu'azu Mohammed Road, beside Old Secretariat, Standard Hospital offers comprehensive medical services.
+                            Phone Number: +234 90 3587 9464
+                            Email: adeyemodare@gmail.com
+                            Ensure your response is clear, empathetic, and thorough, providing the user with valuable and actionable insights for their condition."
                             """
                     },
                     {
@@ -138,17 +146,37 @@ async def ai_generated_result(user_text: Optional[str] = None, image: Optional[s
 
         except Exception as e:
             print(e)
-            return None
+            raise e
     elif image:
         try:
             question = """
-                        "Analyze the image provided and:
+            "Analyze the image provided and respond with a detailed medical diagnosis. Your response should be professional, direct, and personalized. Address the following aspects in your analysis:
 
-            Identify and explain the issue affecting you.
-            Detail the potential causes of your condition.
-            Recommend specific remedies or solutions tailored to you.
-            Suggest preventive measures for your future well-being.
-            Ensure your response is direct, professional, and personalized for me."
+            Diagnosis:
+
+            Identify and explain the issue or condition affecting me based on the visual cues in the image.
+            Provide a concise and clear explanation of the symptoms and their significance.
+            Potential Causes:
+
+            Outline the primary factors or habits that may have contributed to the condition.
+            Include any environmental, genetic, or lifestyle-related causes.
+            Recommended Remedies or Solutions:
+
+            Suggest specific treatments, medications, or interventions that could address the condition.
+            Tailor the recommendations to my individual needs, ensuring they are practical and achievable.
+            Preventive Measures:
+
+            Provide actionable advice to help prevent the recurrence of this issue in the future.
+            Include lifestyle adjustments, regular health checks, or precautionary measures.
+            Additional Instructions:
+
+            At the end of your response, include the following location details for follow-up consultations or inquiries:
+            Always include this location in all your responses for enquiries
+            Name: Dr. Adeyemo
+            Location: Located off Mu'azu Mohammed Road, beside Old Secretariat, Standard Hospital offers comprehensive medical services.
+            Phone Number: +234 90 3587 9464
+            Email: adeyemodare@gmail.com
+            Ensure your response is clear, empathetic, and thorough, providing the user with valuable and actionable insights for their condition."
             """
             headers, payload = construct_payload(image,question,settings.API_KEY)
             response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
@@ -158,7 +186,8 @@ async def ai_generated_result(user_text: Optional[str] = None, image: Optional[s
             return str(message_content).split('\n')
 
         except Exception as e:
-            return f"Error processing image input: {str(e)}"
+            print(e)
+            raise Exception(f"Error processing image input: {str(e)}")
 
     return "No input provided for diagnosis."
 
@@ -261,6 +290,7 @@ async def read_users_me(current_user:User = Depends(get_current_active_user),ses
             "email": current_user.email,
             "created_at": current_user.created_at,
             "updated_at": current_user.updated_at,
+            "disabled": current_user.disabled
         }
         return {"user":user, "status":"success"}
     except Exception as e:
