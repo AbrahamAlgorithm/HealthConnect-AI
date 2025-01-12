@@ -24,6 +24,8 @@ class User_(BaseModel):
     disabled:bool = False
     email:str | None = None
     password:str
+    created_at:datetime
+    updated_at: datetime
     
 
     
