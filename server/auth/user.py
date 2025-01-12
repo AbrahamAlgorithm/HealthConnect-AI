@@ -169,11 +169,6 @@ async def login_for_access_token(form_data:Login,session:AsyncSession=Depends(ge
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(e))
 
 
-@router.get("/users/me")
-async def read_users_me(current_user:User = Depends(get_current_active_user),session: AsyncSession = Depends(get_session)):
-    
-    return current_user
-
 
 # import asyncio
 # password = input("enter your password:")

@@ -1,20 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SideBar from '../components/SideBar';
 import TopSearchArea from '../components/TopSearchArea';
 import { IoMdSettings } from "react-icons/io";
 import { FaUserCircle, FaBell, FaLock, FaQuestionCircle, FaCamera } from "react-icons/fa";
 import profileDp from '../Assets/Images/Profile DP.jpg';
-
+import { toast } from "react-toastify";
+import { api } from '../services/router';
 const Settings = () => {
     const [activeTab, setActiveTab] = useState('profile');
     const [formData, setFormData] = useState({
-        fullName: 'John Doe',
+        username: 'John Doe',
         email: 'john@example.com',
         phone: '+1234567890',
         notifications: true,
         emailUpdates: true,
         twoFactor: false
     });
+    const fetchUser = async () => {
+        try {
+            const response = await api.get("/api/v1/users/me");
+            console.log(response?.data?.user);
+            setFormData(response?.data?.user);
+        } catch (e) {
+            console.error('Error:', e.response.data?.detail);
+            toast.error(e.response.data?.detail);
+        }
+
+
+    }
+    useEffect(() => {
+        fetchUser()
+    }, [])
+
 
     return (
         <div className='home-container'>
@@ -40,7 +57,7 @@ const Settings = () => {
                                     <FaCamera />
                                 </div>
                             </div>
-                            <h2>{formData.fullName}</h2>
+                            <h2>{formData.username}</h2>
                             <p>{formData.email}</p>
                             <div className='profile-status'>
                                 <span className='status-badge'>Active</span>
@@ -51,7 +68,7 @@ const Settings = () => {
                         <div className='settings-main-content'>
                             <div className='settings-tabs'>
                                 {['Profile', 'Security', 'Notifications', 'Support'].map(tab => (
-                                    <button 
+                                    <button
                                         key={tab}
                                         className={`tab-button ${activeTab === tab.toLowerCase() ? 'active' : ''}`}
                                         onClick={() => setActiveTab(tab.toLowerCase())}

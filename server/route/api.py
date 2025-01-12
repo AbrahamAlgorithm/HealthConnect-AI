@@ -249,6 +249,22 @@ async def symptoms_checker(
     except Exception as e:
         # General exception handling
         raise HTTPException(status_code=400, detail=f"Failed to process symptoms: {str(e)}")
+    
+    
+    
+@api_router.get("/users/me")
+async def read_users_me(current_user:User = Depends(get_current_active_user),session: AsyncSession = Depends(get_session)):
+    try:
+        user = {
+            "username": current_user.username,
+            "id": current_user.id,
+            "email": current_user.email,
+            "created_at": current_user.created_at,
+            "updated_at": current_user.updated_at,
+        }
+        return {"user":user, "status":"success"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Failed to get user info: {str(e)}")
 
 
 
