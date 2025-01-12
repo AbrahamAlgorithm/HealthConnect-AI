@@ -117,12 +117,12 @@ async def ai_generated_result(user_text: Optional[str] = None, image: Optional[s
                 messages=[
                     {
                         "role": "system",
-                        "content": """ You are a helpful assistant designed to output plain text.
-                        You are a medical assistant designed to diagnose illnesses based on symptoms provided in the text. 
-                        You will generate a diagnosis for the user based on their description. 
-                        The symptoms can vary, and your task is to identify the possible condition. 
-                        Respond with the diagnosis and provide any suggestions or recommendations if applicable.
-                        If no clear diagnosis can be made, respond with "Unable to diagnose with the provided information."""
+                        "content": """
+                            You are my medical assistant designed to diagnose illnesses based on the symptoms I provide. Direct all responses
+                            to me personally. Generate a short, professional diagnosis based on my description, identifying the possible condition.
+                            If applicable, include concise suggestions or recommendations. If a diagnosis cannot be determined, respond with: 
+                            "Unable to diagnose with the provided information.
+                            """
                     },
                     {
                         "role": "user",
@@ -142,12 +142,13 @@ async def ai_generated_result(user_text: Optional[str] = None, image: Optional[s
     elif image:
         try:
             question = """
-            "Please analyze the provided image and provide a detailed explanation of the following:
+                        "Analyze the image provided and:
 
-            Potential causes related to the issue shown in the image.
-            Possible solutions or remedies for the issue identified.
-            If applicable, suggest preventive measures to avoid recurrence.
-            Be as thorough and clear as possible, considering all possible factors related to the image."
+            Identify and explain the issue affecting you.
+            Detail the potential causes of your condition.
+            Recommend specific remedies or solutions tailored to you.
+            Suggest preventive measures for your future well-being.
+            Ensure your response is direct, professional, and personalized for me."
             """
             headers, payload = construct_payload(image,question,settings.API_KEY)
             response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)

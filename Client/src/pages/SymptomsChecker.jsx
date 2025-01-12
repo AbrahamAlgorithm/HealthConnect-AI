@@ -120,24 +120,38 @@ const SymptomsChecker = () => {
 
     const formatResults = (resultsArray) => {
         return resultsArray.map((line, index) => {
-            if (line.includes('**')) {
-                // Bold lines (for headings)
+            if (line.startsWith("###")) {
+                // Heading lines
                 return (
-                    <p key={index} className="font-bold text-xl mt-4">{line}</p>
+                    <h2 key={index} className="text-2xl font-bold mt-4">
+                        {line.replace("###", "").trim()}
+                    </h2>
+                );
+            } else if (line.includes("**")) {
+                // Bold lines
+                return (
+                    <p key={index} className="font-bold text-lg mt-4">
+                        {line.replace(/\*\*/g, "").trim()}
+                    </p>
                 );
             } else if (line.startsWith("1.") || line.startsWith("2.") || line.startsWith("3.")) {
                 // List items
                 return (
-                    <p key={index} className="pl-4 mt-2">{line}</p>
+                    <p key={index} className="pl-4 mt-2">
+                        {line.trim()}
+                    </p>
                 );
             } else {
                 // Regular text
                 return (
-                    <p key={index} className="mt-2">{line}</p>
+                    <p key={index} className="mt-2">
+                        {line.trim()}
+                    </p>
                 );
             }
         });
     };
+
 
     return (
         <div className='home-container'>
@@ -209,17 +223,13 @@ const SymptomsChecker = () => {
                                 <h2 className="text-xl font-semibold text-center mb-4">Analysis Results</h2>
                                 <div className="results-container p-6 border border-gray-300 mt-6">
                                     <div className="results-content flex flex-col items-center">
+                                        <h2 className="text-2xl font-bold">Diagnosis:</h2>
                                         <p className="diagnosis-text text-3xl font-bold text-center mb-2">
-                                            <strong>Diagnosis:</strong>
-                                            <span className="typing-effect text-xl">{displayedText}</span>
-                                        </p>
 
-                                        {typingComplete && (
-                                            <div className="additional-notes mt-4 pl-6 text-gray-700">
-                                                <strong>Note:</strong>
-                                                {formatResults(results) || "No additional notes."}
-                                            </div>
-                                        )}
+                                            {typingComplete && (
+                                                <span className="typing-effect text-xl">{formatResults(results) || "No additional notes."}</span>
+                                            )}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
