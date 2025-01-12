@@ -6,10 +6,13 @@ import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import SymptomChecker from "./pages/SymptomsChecker.jsx";
 import Settings from "./pages/Settings.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
